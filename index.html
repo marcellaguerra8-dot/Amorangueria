@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>A Morangueria — Morangos e Chocolate | Campinas, SP</title>
+<meta name="description" content="Morangos frescos, chocolate irresistível. A Morangueria — Campinas, SP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --morango:#D42A3C;
+  --morango-vivo:#EA3B4B;
+  --vermelho-profundo:#7A1424;
+  --chocolate-escuro:#241109;
+  --chocolate-quase-preto:#160B06;
+  --creme:#F8F1E4;
+  --creme-2:#F1E7D4;
+  --dourado:#C9A15D;
+  --dourado-claro:#E4C98A;
+  --texto-escuro:#2B1A12;
+  --serif: 'Fraunces', serif;
+  --sans: 'Manrope', sans-serif;
+  --wave-cream: #F8F1E4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--creme);
+  color:var(--texto-escuro);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+.container{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+::selection{background:var(--morango);color:#fff;}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,.8,.24,1), transform .9s cubic-bezier(.16,.8,.24,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
+.reveal-delay-4{transition-delay:.32s;}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:18px 0;
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+}
+.site-header.scrolled{
+  background:rgba(22,11,6,0.92);
+  backdrop-filter:blur(10px);
+  padding:12px 0;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;height:auto;}
+.logo-img{max-height:60px;width:auto;display:block;}.logo-mark{
+  width:38px;height:38px;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, var(--morango-vivo), var(--vermelho-profundo) 70%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 1px rgba(201,161,93,.5), 0 4px 14px rgba(0,0,0,.35);
+  flex-shrink:0;
+}
+.logo-mark svg{width:20px;height:20px;}
+.logo-text{line-height:1.05;}
+.logo-text .n1{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.02em;}
+.logo-text .n2{font-family:var(--sans);font-weight:600;font-size:8.5px;letter-spacing:.16em;color:var(--dourado-claro);text-transform:uppercase;}
+nav.main-nav{display:flex;gap:36px;}
+nav.main-nav a{
+  color:rgba(255,255,255,.86);font-size:14.5px;font-weight:500;letter-spacing:.01em;
+  position:relative;padding:4px 0;transition:color .25s;
+}
+nav.main-nav a::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--dourado-claro);transition:width .3s ease;
+}
+nav.main-nav a:hover{color:#fff;}
+nav.main-nav a:hover::after{width:100%;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.02em;
+  padding:14px 26px;border-radius:100px;white-space:nowrap;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, background .3s ease;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{
+  background:linear-gradient(135deg, var(--morango-vivo), var(--morango) 60%, var(--vermelho-profundo));
+  color:#fff;box-shadow:0 8px 22px rgba(212,42,60,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(212,42,60,.45);}
+.btn-outline{
+  background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);
+}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.btn-dark{background:var(--chocolate-escuro);color:var(--creme);}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.3);}
+.header-cta{display:none;}
+@media(min-width:1000px){.header-cta{display:inline-flex;}}
+
+.burger{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;z-index:1200;position:relative;
+}
+.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .35s ease, opacity .3s ease;}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(min-width:1000px){.burger{display:none;}}
+@media(max-width:999px){nav.main-nav{display:none;}}
+
+.mobile-menu{
+  position:fixed;inset:0;background:linear-gradient(160deg,#1c0d07,#2b140b);
+  z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transform:translateY(-100%);transition:transform .45s cubic-bezier(.65,0,.35,1);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{color:#fff;font-family:var(--serif);font-size:26px;font-weight:500;}
+.mobile-menu .btn{margin-top:14px;}
+
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  min-height:100svh;
+  background-image:url('images/img-02.jpg');
+  background-size:cover;
+  background-position:right center;
+  background-attachment:fixed;
+  color:#fff;overflow:hidden;
+  display:flex;flex-direction:column;
+  padding-top:110px;
+ background-image: url('images/img-02.jpg'); background-size: cover; background-position: center; background-attachment: fixed;}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg, rgba(26,13,7,.68) 0%, rgba(36,17,9,.45) 50%, rgba(26,13,7,.15) 100%);
+  z-index:1;
+}
+
+.hero-inner{
+  flex:1;display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+  position:relative;z-index:2;
+}
+@media(min-width:960px){
+  .hero-inner{grid-template-columns:1.05fr 1fr;gap:20px;}
+}
+.hero-copy .eyebrow{
+  font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--dourado-claro);margin-bottom:22px;display:flex;align-items:center;gap:10px;
+}
+.hero-copy .eyebrow::before{content:"";width:26px;height:1px;background:var(--dourado-claro);}
+.hero-copy h1{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(38px,6.4vw,74px);
+  line-height:1.03;letter-spacing:-.01em;margin-bottom:22px;
+}
+.hero-copy h1 em{
+  font-style:italic;font-weight:600;color:var(--morango-vivo);
+  text-shadow:0 0 40px rgba(234,59,75,.35);
+}
+.hero-copy p.lede{
+  font-size:clamp(15px,1.6vw,18.5px);line-height:1.6;color:rgba(255,255,255,.72);
+  max-width:440px;margin-bottom:34px;font-weight:400;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px;}
+.hero-loc{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:14px;}
+.hero-loc svg{width:15px;height:15px;flex-shrink:0;}
+
+.hero-visual{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  width:100%;
+  padding:10px 0;
+}
+.hero-visual .glow{
+  position:absolute;width:75%;height:75%;border-radius:50%;
+  background:radial-gradient(circle, rgba(212,42,60,.32), transparent 72%);
+  filter:blur(50px);z-index:0;
+}
+.hero-product{
+  position:relative;z-index:2;
+  display:flex;justify-content:center;
+  will-change:transform, opacity;
+  opacity:0;
+  transform:translateY(20px);
+  animation:heroProductIn 1.4s cubic-bezier(.16,.8,.24,1) forwards;
+  animation-delay:.25s;
+}
+.hero-product-inner{
+  position:relative;
+  animation:heroFloat 6.5s ease-in-out infinite;
+  animation-delay:1.65s;
+}
+.hero-product img{
+  display:block;
+  width:auto;height:auto;
+  max-width:min(86vw,460px);
+  max-height:60vh;
+  filter:drop-shadow(0 30px 55px rgba(0,0,0,.55));
+}
+@media(min-width:960px){
+  .hero-product img{max-width:min(38vw,480px);max-height:66vh;}
+}
+@keyframes heroProductIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0px);}
+  50%{transform:translateY(-10px);}
+}
+@media(prefers-reduced-motion: reduce){
+  .hero-product{opacity:1;transform:none;animation:none;}
+  .hero-product-inner{animation:none;}
+}
+
+.scroll-cue{
+  display:flex;align-items:center;justify-content:center;gap:10px;padding:22px 0 6px;
+  color:rgba(255,255,255,.45);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:2;
+}
+.scroll-cue .dot{width:6px;height:6px;border-radius:50%;background:var(--dourado-claro);animation:pulseDot 2s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+.wave-transition{position:relative;line-height:0;z-index:3;margin-top:-2px;}
+.wave-transition svg{width:100%;height:auto;display:block;}
+
+/* ---------- Section generic ---------- */
+section{position:relative;}
+.section-pad{padding:clamp(70px,9vw,120px) 0;}
+.eyebrow-sm{
+  font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--morango);
+  margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow-sm.on-dark{color:var(--dourado-claro);}
+.eyebrow-sm::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6;}
+h2.section-title{
+  font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-.01em;
+}
+h2.section-title em{font-style:italic;color:var(--morango);font-weight:500;}
+.on-dark h2.section-title em{color:var(--morango-vivo);}
+.produtos h2.section-title{color:#fff;}
+.product-body h3{color:#fff;}
+
+/* ---------- Section 2: Experiência ---------- */
+.experience{background:var(--creme);}
+.experience-grid{display:grid;grid-template-columns:1fr;gap:56px;align-items:start;}
+@media(min-width:900px){.experience-grid{grid-template-columns:.9fr 1fr;gap:80px;}}
+.experience-text p{font-size:16.5px;line-height:1.75;color:#5a4739;max-width:420px;margin-top:22px;}
+
+.experience-highlights{display:flex;flex-direction:column;}
+.experience-highlight{
+  display:flex;gap:24px;align-items:flex-start;
+  padding:28px 0;
+  border-top:1px solid rgba(43,26,18,.13);
+  transition:padding-left .4s cubic-bezier(.16,.8,.24,1);
+}
+.experience-highlight:last-child{border-bottom:1px solid rgba(43,26,18,.13);}
+.experience-highlight:hover{padding-left:8px;}
+.experience-highlight .num{
+  font-family:var(--serif);font-style:italic;font-weight:500;font-size:15px;
+  color:var(--dourado);letter-spacing:.02em;padding-top:4px;flex-shrink:0;width:26px;
+}
+.experience-highlight h3{
+  font-family:var(--serif);font-size:clamp(18px,2vw,21px);font-weight:600;
+  letter-spacing:-.01em;margin-bottom:7px;color:var(--texto-escuro);
+}
+.experience-highlight p{font-size:14.5px;line-height:1.6;color:#7a6a5c;max-width:360px;}
+
+
+/* ---------- Section 3: Produtos ---------- */
+.produtos{
+  background-image:url('images/img-03.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  position:relative;
+}
+.produtos::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(26,13,7,.75) 0%, rgba(36,17,9,.78) 50%, rgba(26,13,7,.75) 100%);
+  z-index:1;
+}
+.produtos > .container{
+  position:relative;z-index:2;
+}
+
+.produtos-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;}
+.carousel-nav{display:flex;gap:10px;align-items:center;}
+.carousel-arrow{
+  width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;flex-shrink:0;
+}
+.carousel-arrow:hover{background:var(--morango);border-color:var(--morango);}
+.carousel-arrow svg{width:17px;height:17px;}
+.product-track-wrap{position:relative;}
+.product-track{
+  display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.product-track::-webkit-scrollbar{display:none;}
+.product-card{
+  scroll-snap-align:start;flex:0 0 auto;width:min(76vw,290px);
+  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.09);border-radius:20px;overflow:hidden;
+  transition:transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .4s ease, border-color .4s;
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 26px 50px -14px rgba(0,0,0,.55);border-color:rgba(201,161,93,.4);}
+.product-photo{aspect-ratio:1/1;overflow:hidden;}
+.product-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.product-card:hover .product-photo img{transform:scale(1.07);}
+.product-body{padding:20px 20px 22px;}
+.product-body h3{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:6px;}
+.product-body p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:16px;min-height:38px;}
+.product-body .btn{width:100%;padding:12px 20px;font-size:13px;}
+.product-sizes{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
+.size-chip{
+  font-size:11px;font-weight:700;letter-spacing:.02em;
+  padding:5px 11px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.78);
+  white-space:nowrap;
+}
+.size-chip-highlight{
+  border-color:rgba(201,161,93,.55);color:var(--dourado-claro);background:rgba(201,161,93,.08);
+}
+.dots{display:flex;gap:7px;justify-content:center;margin-top:28px;}
+.dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:.3s;}
+.dots button.active{background:var(--dourado-claro);width:20px;border-radius:5px;}
+
+/* ---------- Section 4: Impacto ---------- */
+.impacto{
+  position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#000;
+}
+.impacto-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transform:scale(1.1);will-change:transform;
+}
+.impacto::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(10,5,3,.55), rgba(10,5,3,.35) 40%, rgba(10,5,3,.65));
+}
+.impacto-content{position:relative;z-index:2;text-align:center;padding:80px 20px;}
+.impacto-content h2{
+  font-family:var(--serif);font-weight:600;color:#fff;
+  font-size:clamp(30px,5.6vw,64px);line-height:1.06;letter-spacing:-.01em;
+}
+.impacto-content h2 em{font-style:italic;color:var(--morango-vivo);font-weight:500;}
+
+/* ---------- Section 5: Manifesto da marca ---------- */
+.manifesto{
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 10%, rgba(212,42,60,.2), transparent 60%),
+    linear-gradient(165deg, var(--vermelho-profundo) 0%, #3a1108 45%, var(--chocolate-quase-preto) 100%);
+  color:#fff;position:relative;overflow:hidden;
+  padding-top:clamp(90px,12vw,150px);padding-bottom:clamp(90px,12vw,150px);
+}
+.manifesto::before{
+  content:"";position:absolute;inset:0;opacity:.4;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:3px 3px;mix-blend-mode:overlay;
+}
+
+/* decorative layer — distributed across the whole section */
+.manifesto-decor{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+.manifesto-glow{position:absolute;border-radius:50%;filter:blur(75px);animation:manifestoDrift 16s ease-in-out infinite;}
+.manifesto-glow.g1{
+  top:-18%;right:-10%;width:44vw;height:44vw;max-width:560px;max-height:560px;
+  background:radial-gradient(circle, rgba(212,42,60,.55), transparent 70%);
+}
+.manifesto-glow.g2{
+  bottom:-20%;left:-10%;width:38vw;height:38vw;max-width:440px;max-height:440px;
+  background:radial-gradient(circle, rgba(201,161,93,.35), transparent 70%);
+  animation-duration:20s;animation-direction:reverse;
+}
+@keyframes manifestoDrift{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-16px,12px) scale(1.06);}}
+.manifesto-swirl{
+  position:absolute;top:6%;left:38%;width:clamp(120px,14vw,220px);height:88%;
+  opacity:.35;z-index:1;
+}
+.manifesto-ring{
+  position:absolute;width:120px;height:120px;border-radius:50%;
+  border:1px solid rgba(201,161,93,.32);
+}
+.manifesto-ring.r1{top:6%;left:2%;}
+.manifesto-ring.r2{width:54px;height:54px;bottom:12%;right:9%;border-color:rgba(255,255,255,.14);}
+.manifesto-dot{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--dourado-claro), var(--dourado) 65%, transparent 100%);
+  animation:driptl 6s ease-in-out infinite;
+}
+.manifesto-dot.md1{width:10px;height:10px;top:16%;right:20%;animation-duration:5s;}
+.manifesto-dot.md2{width:7px;height:7px;top:70%;left:34%;animation-duration:7s;animation-delay:.6s;}
+.manifesto-dot.md3{
+  width:16px;height:16px;bottom:10%;right:32%;animation-duration:6.5s;animation-delay:1.1s;
+  background:radial-gradient(circle at 35% 30%, var(--morango-vivo), var(--vermelho-profundo) 70%);
+}
+.manifesto-dot.md4{width:5px;height:5px;top:36%;left:8%;animation-duration:5.5s;animation-delay:.3s;}
+.manifesto-dot.md5{width:8px;height:8px;top:8%;left:52%;animation-duration:6s;animation-delay:.9s;}
+@media(max-width:760px){
+  .manifesto-swirl, .manifesto-ring.r1{display:none;}
+  .manifesto-glow.g1{width:85vw;height:85vw;top:-22%;right:-32%;}
+  .manifesto-glow.g2{width:70vw;height:70vw;bottom:-14%;left:-18%;}
+}
+
+/* content layer — asymmetric editorial grid */
+.manifesto-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:44px;}
+@media(min-width:900px){
+  .manifesto-grid{grid-template-columns:.6fr 1fr;gap:30px;align-items:start;}
+  .manifesto-col-right{margin-top:8vw;padding-left:14px;}
+}
+.manifesto-col-left{display:flex;flex-direction:column;align-items:flex-start;}
+.manifesto-header{display:flex;align-items:center;gap:14px;margin-bottom:26px;}
+.manifesto-header .eyebrow-sm{margin-bottom:0;}
+.manifesto-mark{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  border:1px solid rgba(201,161,93,.5);color:var(--dourado-claro);
+  display:flex;align-items:center;justify-content:center;
+}
+.manifesto-mark svg{width:19px;height:19px;}
+.manifesto-title{
+  font-family:var(--serif);font-weight:600;font-style:normal;
+  font-size:clamp(28px,3.6vw,44px);line-height:1.12;letter-spacing:-.01em;
+  color:#fff;position:relative;padding-bottom:22px;
+}
+.manifesto-title::after{
+  content:"";position:absolute;left:1px;bottom:0;width:46px;height:2px;
+  background:linear-gradient(90deg,var(--dourado-claro),transparent);
+}
+.manifesto-col-right{position:relative;}
+.manifesto-quotemark{
+  position:absolute;top:-.5em;left:-.12em;
+  font-family:var(--serif);font-size:clamp(140px,16vw,240px);line-height:1;font-weight:700;
+  color:rgba(255,255,255,.06);user-select:none;z-index:-1;
+}
+.manifesto-pullquote{
+  position:relative;margin:0 0 28px;
+  font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(34px,5.8vw,62px);line-height:1.08;letter-spacing:-.01em;
+  color:#fff;
+}
+.manifesto-pullquote em{font-style:italic;color:var(--dourado-claro);}
+.manifesto-text{
+  font-family:var(--sans);font-size:15.5px;line-height:1.75;
+  color:rgba(255,255,255,.68);max-width:430px;margin-bottom:26px;
+}
+.manifesto-signature{
+  font-family:var(--serif);font-style:italic;font-size:14.5px;
+  color:var(--dourado-claro);letter-spacing:.02em;
+}
+
+/* ---------- Section 6: Depoimentos ---------- */
+.depoimentos{background:var(--chocolate-quase-preto);color:#fff;}
+.dep-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:48px;}
+.dep-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:820px){.dep-grid{grid-template-columns:repeat(3,1fr);}}
+.dep-card{
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;
+  padding:30px 26px;display:flex;flex-direction:column;gap:20px;position:relative;
+}
+.dep-card .placeholder-tag{
+  position:absolute;top:16px;right:16px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.2);padding:3px 8px;border-radius:20px;
+}
+.dep-quote{font-size:15px;line-height:1.65;color:rgba(255,255,255,.85);font-style:italic;}
+.dep-person{display:flex;align-items:center;gap:12px;}
+.dep-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--morango),var(--vermelho-profundo));
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:14px;color:#fff;
+}
+.dep-person .name{font-size:14px;font-weight:700;}
+.dep-stars{display:flex;gap:2px;margin-top:2px;}
+.dep-stars svg{width:11px;height:11px;color:var(--dourado-claro);}
+
+/* ---------- Section 7: Instagram ---------- */
+.instagram{
+  position:relative;overflow:hidden;color:var(--texto-escuro);
+  background:var(--creme);
+}
+.insta-heart{position:absolute;pointer-events:none;}
+.insta-heart.h1{width:28px;height:28px;top:10%;right:20%;color:rgba(122,20,36,.12);transform:rotate(-8deg);}
+.insta-heart.h2{width:16px;height:16px;bottom:22%;left:7%;color:rgba(201,161,93,.35);}
+/* decorative layer */
+.insta-decor{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+.insta-glow{position:absolute;border-radius:50%;filter:blur(80px);}
+.insta-glow.gA{top:-12%;left:-10%;width:40vw;height:40vw;max-width:440px;max-height:440px;background:radial-gradient(circle, rgba(212,42,60,.32), transparent 70%);}
+.insta-glow.gB{bottom:-16%;right:-8%;width:36vw;height:36vw;max-width:400px;max-height:400px;background:radial-gradient(circle, rgba(201,161,93,.22), transparent 70%);}
+.insta-dot{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%, var(--dourado-claro), var(--dourado) 65%, transparent 100%);animation:driptl 6s ease-in-out infinite;}
+.insta-dot.id1{width:8px;height:8px;top:20%;left:46%;animation-duration:5.5s;}
+.insta-dot.id2{width:6px;height:6px;bottom:32%;right:11%;animation-duration:6.5s;animation-delay:.5s;}
+.insta-dot.id3{
+  width:11px;height:11px;top:62%;left:4%;animation-duration:7s;animation-delay:1s;
+  background:radial-gradient(circle at 35% 30%, var(--morango-vivo), var(--vermelho-profundo) 70%);
+}
+@media(max-width:760px){
+  .insta-heart.h1{right:10%;}
+  .insta-glow.gA{width:75vw;height:75vw;}
+  .insta-glow.gB{width:65vw;height:65vw;}
+}
+
+/* layout */
+.insta-layout{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:56px;align-items:center;}
+@media(min-width:920px){.insta-layout{grid-template-columns:.85fr 1fr;gap:64px;}}
+
+/* store image column */
+.insta-phone-col{position:relative;display:flex;justify-content:center;align-items:center;}
+.loja-image-wrapper{
+  position:relative;width:100%;max-width:420px;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(212,42,60,.25), 0 0 0 1px rgba(201,161,93,.15);
+  animation:lojaFloat 4s ease-in-out infinite;
+}
+.loja-image-wrapper img{width:100%;height:auto;display:block;}
+@keyframes lojaFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* text column */
+.insta-text-col{display:flex;flex-direction:column;align-items:flex-start;}
+.insta-eyebrow{
+  font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#7a6a5c;margin-bottom:6px;
+}
+.insta-title{
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-.01em;
+  color:var(--morango-vivo);margin-bottom:24px;
+  text-shadow:0 0 50px rgba(234,59,75,.3);
+}
+.insta-desc{font-size:16px;line-height:1.7;color:#5a4739;max-width:400px;margin-bottom:28px;}
+.insta-handle-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1.5px solid rgba(122,20,36,.35);color:var(--vermelho-profundo);
+  padding:10px 20px;border-radius:100px;font-weight:700;font-size:14px;
+  margin-bottom:26px;transition:.25s;
+}
+.insta-handle-pill:hover{background:rgba(122,20,36,.06);border-color:var(--vermelho-profundo);}
+@media(max-width:919px){
+  .insta-text-col{align-items:center;text-align:center;}
+  .insta-desc{margin-left:auto;margin-right:auto;}
+}
+
+/* ---------- Section 8: Info + CTA ---------- */
+.info-strip{background:var(--creme);border-top:1px solid rgba(43,26,18,.1);}
+.info-inner{
+  display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:space-between;
+  padding:44px 0;
+}
+.info-cols{display:flex;flex-wrap:wrap;gap:clamp(26px,5vw,60px);}
+.info-col{display:flex;align-items:flex-start;gap:12px;max-width:220px;}
+.info-col svg{width:22px;height:22px;color:var(--morango);flex-shrink:0;margin-top:2px;}
+.info-col .label{font-weight:700;font-size:14.5px;margin-bottom:2px;}
+.info-col .sub{font-size:13px;color:#7a6a5c;line-height:1.4;}
+
+/* ---------- Footer ---------- */
+footer{background:var(--chocolate-quase-preto);color:rgba(255,255,255,.7);}
+.footer-inner{padding:60px 0 30px;display:grid;grid-template-columns:1fr;gap:40px;}
+@media(min-width:760px){.footer-inner{grid-template-columns:1.2fr 1fr 1fr;}}
+.footer-brand .logo{color:#fff;margin-bottom:16px;}
+.footer-brand p{font-size:13.5px;color:rgba(255,255,255,.45);max-width:280px;line-height:1.6;}
+.footer-col h4{font-family:var(--sans);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dourado-claro);margin-bottom:18px;}
+.footer-col a, .footer-col p{display:block;font-size:14.5px;color:rgba(255,255,255,.65);margin-bottom:11px;transition:color .2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);padding:22px 0;
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  font-size:12.5px;color:rgba(255,255,255,.4);
+}
+
+/* ---------- Sticky WhatsApp mobile ---------- */
+.sticky-wa{
+  position:fixed;bottom:18px;right:18px;z-index:900;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#1DA851);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+  animation:waPulse 2.6s ease-in-out infinite;
+}
+.sticky-wa svg{width:28px;height:28px;color:#fff;}
+@keyframes waPulse{0%,100%{box-shadow:0 10px 26px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.5);}50%{box-shadow:0 10px 26px rgba(0,0,0,.35),0 0 0 10px rgba(37,211,102,0);}}
+
+@media(min-width:1000px){.sticky-wa{display:none;}}
+
+/* ========== SECTION: SORVETES ARTESANAIS ========== */
+.sorvetes{
+  position:relative;
+  color:#fff;
+}
+
+.sorvetes::before{
+  display:none;
+}
+
+.sorvetes > .container{
+  position:relative;z-index:2;
+}
+
+.sorvetes-intro{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;margin-bottom:80px;}
+@media(min-width:1000px){.sorvetes-intro{grid-template-columns:1fr 1.1fr;gap:96px;}}
+
+.sorvetes-left{max-width:none;}
+.badge-novidade{display:inline-flex;align-items:center;gap:8px;background:var(--morango);color:#fff;padding:10px 18px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:28px;}
+.sorvetes-title{margin-bottom:32px;text-align:left;line-height:1.05;letter-spacing:-.01em;}
+.sorvetes-title .number{font-family:var(--serif);font-size:clamp(120px,18vw,200px);font-weight:700;background:linear-gradient(135deg, var(--dourado-claro), var(--dourado));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:0.9;margin-bottom:-12px;font-style:italic;}
+.sorvetes-title .subtitle-premium{font-family:var(--serif);font-size:clamp(44px,6vw,68px);font-weight:600;color:#fff;display:block;letter-spacing:.04em;}
+.sorvetes-title .subtitle-premium em{font-style:italic;color:var(--morango-vivo);font-weight:500;display:block;font-size:clamp(38px,5vw,58px);}
+
+.sorvetes-descriptor{font-family:var(--sans);font-size:16.5px;line-height:1.72;color:rgba(255,255,255,.86);margin-bottom:48px;max-width:none;font-weight:500;letter-spacing:.01em;}
+
+.sorvetes-highlights{display:flex;flex-direction:column;gap:32px;margin-bottom:52px;}
+.highlight-item{display:flex;gap:20px;align-items:flex-start;position:relative;padding-left:2px;opacity:0;animation:slideInFromLeft .8s cubic-bezier(.16,.8,.24,1) forwards;}.highlight-item:nth-child(1){animation-delay:.2s;}.highlight-item:nth-child(2){animation-delay:.4s;}.highlight-item:nth-child(3){animation-delay:.6s;}
+@keyframes slideInFromLeft{0%{opacity:0;transform:translateX(-32px);}100%{opacity:1;transform:translateX(0);}}
+.highlight-item::before{content:"";position:absolute;left:0;top:12px;width:1px;height:calc(100% - 24px);background:linear-gradient(180deg, var(--dourado-claro), transparent);opacity:0;animation:none;}
+.highlight-item:not(:last-child)::before{height:1px;top:calc(100% + 16px);opacity:.3;}
+
+.highlight-icon{width:44px;height:44px;color:var(--dourado-claro);flex-shrink:0;margin-top:2px;filter:drop-shadow(0 2px 8px rgba(201,161,93,.15));}
+.highlight-item strong{font-family:'Poppins',sans-serif;font-size:15px;display:block;margin-bottom:6px;font-weight:700;color:#fff;letter-spacing:.02em;}
+.highlight-item span{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(255,255,255,.75);display:block;line-height:1.5;font-weight:600;}
+
+.sorvetes-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+.sorvetes-image-wrapper{position:relative;width:100%;max-width:420px;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;}
+.sorvetes-pote{width:100%;height:auto;max-width:100%;filter:drop-shadow(0 40px 80px rgba(0,0,0,.7));animation:sorveteFloat 3.5s ease-in-out infinite;}
+@keyframes sorveteFloat{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
+
+.sorvetes-badge-lateral{position:absolute;bottom:clamp(20px,4vw,60px);right:clamp(10px,3vw,40px);background:rgba(212,42,60,.15);border:1.5px solid var(--morango);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:12px;backdrop-filter:blur(8px);}
+.sorvetes-badge-lateral svg{width:36px;height:36px;color:var(--morango-vivo);flex-shrink:0;}
+.sorvetes-badge-lateral strong{font-size:13px;display:block;font-weight:700;}
+.sorvetes-badge-lateral span{font-size:12px;color:rgba(255,255,255,.7);display:block;}
+
+.sorvetes-destaque-section{padding-top:60px;border-top:1px solid rgba(255,255,255,.12);}
+.destaque-title{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dourado-claro);text-align:center;margin-bottom:50px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.destaque-title::before,.destaque-title::after{content:"";width:40px;height:1px;background:var(--dourado-claro);opacity:.5;}
+
+.sabores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:22px;margin-bottom:48px;}
+@media(min-width:768px){.sabores-grid{grid-template-columns:repeat(6,1fr);gap:18px;}}
+
+.sabor-card{text-align:center;cursor:pointer;transition:transform .35s cubic-bezier(.16,.8,.24,1);}
+.sabor-card:hover{transform:translateY(-6px);}
+.sabor-image{aspect-ratio:1/1;border-radius:16px;margin-bottom:14px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 12px 32px rgba(0,0,0,.45);transition:transform .5s ease;}
+.sabor-card:hover .sabor-image{transform:scale(1.05);}
+
+.morango-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-07.jpg'); background-size: cover; background-position: center;}
+.cookies-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-08.jpg'); background-size: cover; background-position: center;}
+.chocolate-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-09.jpg'); background-size: cover; background-position: center;}
+.maracuja-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-10.jpg'); background-size: cover; background-position: center;}
+.pistache-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-11.jpg'); background-size: cover; background-position: center;}
+.ninho-img{background-size: contain; background-repeat: no-repeat; background-image: url('images/img-12.jpg'); background-size: cover; background-position: center;}
+.sabor-card h4{font-family:var(--serif);font-size:15px;font-weight:600;color:#fff;letter-spacing:-.005em;}
+
+/* ========== BOTÕES DE DELIVERY - SORVETES ========== */
+.sorvetes-delivery-section{
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;
+  margin-top:56px;padding-top:56px;border-top:1px solid rgba(255,255,255,.12);
+}
+
+.btn-delivery{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 28px;border-radius:12px;font-weight:700;font-size:14px;
+  transition:transform .25s, box-shadow .3s ease;
+  border:none;cursor:pointer;font-family:var(--sans);letter-spacing:.02em;
+}
+
+.btn-delivery:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.3);}
+.btn-delivery:active{transform:scale(.97);}
+
+.btn-delivery.ifood{
+  background:#e31e1e;color:#fff;
+}
+.btn-delivery.ifood:hover{background:#c91515;box-shadow:0 12px 28px rgba(227,30,30,.35);}
+
+.btn-delivery.app99{
+  background:#FFD700;color:#000;
+}
+.btn-delivery.app99:hover{background:#FFC700;box-shadow:0 12px 28px rgba(255,215,0,.35);}
+
+.btn-delivery.whatsapp{
+  background:#25D366;color:#fff;
+}
+.btn-delivery.whatsapp:hover{background:#1da851;box-shadow:0 12px 28px rgba(37,211,102,.35);}
+
+.btn-delivery svg{width:18px;height:18px;}
+
+@media(max-width:999px){.sorvetes-intro{grid-template-columns:1fr;} .sorvetes-visual{order:-1;max-width:100%;} .sorvetes-image-wrapper{max-width:320px;margin:0 auto;} .sorvetes-badge-lateral{bottom:10px;right:10px;}}
+@media(max-width:640px){.sabores-grid{grid-template-columns:repeat(3,1fr);gap:12px;} .sabor-card h4{font-size:12px;} .sorvetes-highlights{flex-direction:column;gap:20px;} .sorvetes-delivery-section{gap:12px;flex-direction:column;} .btn-delivery{width:100%;}}
+
+
+.hero-product{display:none !important;}
+.hero-product img{display:none !important;}
+
+
+
+/* ========== ATUALIZAÇÃO SEÇÃO SORVETES ========== */
+.sorvetes{
+  background-image:url('images/img-04.jpg');
+  background-size:cover;
+  background-position:center right;
+  background-attachment:fixed;
+}
+
+.sorvetes-image-wrapper{display:none !important;}
+.sorvetes-pote{display:none !important;}
+.sorvetes-visual{display:none !important;}
+
+
+/* ========== OTIMIZAÇÃO MOBILE - IMAGENS ========== */
+@media(max-width:768px){
+  .morango-img,
+  .cookies-img,
+  .chocolate-img,
+  .maracuja-img,
+  .pistache-img,
+  .ninho-img {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+  }
+  
+  .sabor-card {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .sabor-image {
+    min-height: 250px;
+  }
+}
+
+/* ========== OTIMIZAÇÃO MOBILE - PRODUTOS ========== */
+@media(max-width:768px){
+  .produtos {
+    background-attachment: scroll !important;
+  }
+}
+
+@media(max-width:480px){
+  .sabor-image {
+    min-height: 200px;
+  }
+  
+  .sabor-card {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media(max-width:768px){
+  .hero {
+    background-attachment: scroll !important;
+    padding: 60px 20px !important;
+  }
+  
+  .hero-content {
+    max-width: 100% !important;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 48px) !important;
+  }
+  
+  .hero p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .hero .btn {
+    width: 100% !important;
+    max-width: 280px;
+  }
+}
+
+@media(max-width:480px){
+  .hero {
+    padding: 40px 16px !important;
+    min-height: 60vh;
+  }
+  
+  .hero h1 {
+    font-size: 24px !important;
+  }
+  
+  .hero p {
+    font-size: 13px !important;
+  }
+}
+
+@media(max-width:768px){
+  .sorvetes {
+    background-attachment: scroll !important;
+    padding: 40px 20px !important;
+  }
+  
+  .sorvetes-title {
+    font-size: clamp(24px, 5vw, 40px) !important;
+  }
+  
+  .sorvetes-descriptor {
+    font-size: 14px !important;
+  }
+}
+
+@media(max-width:480px){
+  .sorvetes {
+    padding: 30px 16px !important;
+  }
+  
+  .sorvetes-title {
+    font-size: 20px !important;
+  }
+  
+  .sorvetes-descriptor {
+    font-size: 13px !important;
+  }
+  
+  .sabor-image {
+    min-height: 220px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#inicio" class="logo">
+      <img src="images/img-15.jpg" alt="A Morangueria - Morangos e Chocolate" class="logo-img" style="height:60px;width:auto;">
+    </a>
+    <nav class="main-nav">
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Nossos produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-primary header-cta" id="waHeaderBtn" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.24-1.37a9.9 9.9 0 004.8 1.23h.01c5.5 0 9.96-4.46 9.96-9.96C21.99 6.46 17.54 2 12.04 2zm0 18.2h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.23 8.23 0 01-1.26-4.39c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.71 8.25-8.28 8.25z"/></svg>
+      Quero pedir
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Início</a>
+  <a href="#produtos">Nossos produtos</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#instagram">Instagram</a>
+  <a href="#contato">Contato</a>
+  <a class="btn btn-primary" id="waMobileBtn" target="_blank" rel="noopener">Quero pedir</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">A Morangueria · Morango, sorvetes e chocolate</p>
+      <h1 class="reveal reveal-delay-1">Morangos frescos.<br>Chocolate <em>irresistível.</em></h1>
+      <p class="lede reveal reveal-delay-2">Uma combinação feita para transformar qualquer momento em uma deliciosa experiência.</p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a class="btn btn-primary wa-link" href="#" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.24-1.37a9.9 9.9 0 004.8 1.23h.01c5.5 0 9.96-4.46 9.96-9.96C21.99 6.46 17.54 2 12.04 2zm0 18.2h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.23 8.23 0 01-1.26-4.39c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.71 8.25-8.28 8.25z"/></svg>
+          Quero pedir
+        </a>
+        <a class="btn btn-outline" href="#produtos">Ver nossas delícias</a>
+      </div>
+      <div class="hero-loc reveal reveal-delay-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Campinas · SP
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="glow"></div>
+      <div class="hero-product">
+        <div class="hero-product-inner">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="dot"></span> role para descobrir</div>
+  <div class="wave-transition">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,32 C240,90 480,0 720,28 C960,56 1200,10 1440,40 L1440,90 L0,90 Z" fill="var(--wave-cream)"/></svg>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: EXPERIÊNCIA ============ -->
+<section class="experience section-pad" id="sobre">
+  <div class="container experience-grid">
+    <div class="experience-text">
+      <p class="eyebrow-sm reveal">A experiência A Morangueria</p>
+      <h2 class="section-title reveal reveal-delay-1">Mais que uma sobremesa.<br><em>Um convite ao prazer.</em></h2>
+      <p class="reveal reveal-delay-2">Escolhemos morangos frescos, no ponto certo de doçura, e os envolvemos em chocolate cremoso e irresistível. De cada combinação nasce uma pequena pausa deliciosa — feita para ser notada, saboreada e repetida.</p>
+    </div>
+    <div class="experience-highlights">
+      <div class="experience-highlight reveal">
+        <span class="num">01</span>
+        <div>
+          <h3>Morangos frescos</h3>
+          <p>Selecionados um a um, no auge do sabor e da textura.</p>
+        </div>
+      </div>
+      <div class="experience-highlight reveal reveal-delay-1">
+        <span class="num">02</span>
+        <div>
+          <h3>Chocolate cremoso e irresistível</h3>
+          <p>Derretido lentamente, para envolver cada morango com generosidade.</p>
+        </div>
+      </div>
+      <div class="experience-highlight reveal reveal-delay-2">
+        <span class="num">03</span>
+        <div>
+          <h3>Combinações deliciosas</h3>
+          <p>Equilibradas com delicadeza, para agradar cada paladar.</p>
+        </div>
+      </div>
+      <div class="experience-highlight reveal reveal-delay-3">
+        <span class="num">04</span>
+        <div>
+          <h3>Uma experiência especial</h3>
+          <p>Porque os melhores momentos merecem um sabor à altura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: PRODUTOS ============ -->
+<section class="produtos section-pad" id="produtos">
+  <div class="container">
+    <div class="produtos-head">
+      <div>
+        <p class="eyebrow-sm on-dark reveal">Nossos produtos</p>
+        <h2 class="section-title reveal reveal-delay-1">Escolha sua<br>combinação favorita</h2>
+      </div>
+      <div class="carousel-nav reveal reveal-delay-2">
+        <button class="carousel-arrow" id="prodPrev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel-arrow" id="prodNext" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="product-track-wrap reveal reveal-delay-2">
+      <div class="product-track" id="productTrack">
+        <div class="product-card">
+          <div class="product-photo"><img src="images/img-16.jpg" alt="Morango com chocolate cookies branco"></div>
+          <div class="product-body">
+            <h3>Morango + Chocolate Cookies Branco</h3>
+            <p>Morangos frescos cobertos por chocolate branco cremoso, finalizados com pedaços de cookies.</p>
+            <div class="product-sizes">
+              <span class="size-chip">P · 150ml</span>
+              <span class="size-chip">M · 200ml</span>
+              <span class="size-chip">G · 300ml</span>
+            </div>
+            <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener">Quero esse</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-photo"><img src="images/img-17.jpg" alt="Morango com chocolate cookies ao leite"></div>
+          <div class="product-body">
+            <h3>Morango + Chocolate Cookies ao Leite</h3>
+            <p>Morangos frescos cobertos por chocolate ao leite cremoso, finalizados com pedaços de cookies.</p>
+            <div class="product-sizes">
+              <span class="size-chip">P · 150ml</span>
+              <span class="size-chip">M · 200ml</span>
+              <span class="size-chip">G · 300ml</span>
+            </div>
+            <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener">Quero esse</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-photo"><img src="images/img-18.jpg" alt="Morango com creme de leite Ninho"></div>
+          <div class="product-body">
+            <h3>Morango + Creme de Leite Ninho</h3>
+            <p>Morangos frescos envolvidos por um cremoso creme de leite Ninho.</p>
+            <div class="product-sizes">
+              <span class="size-chip">P · 150ml</span>
+              <span class="size-chip">M · 200ml</span>
+              <span class="size-chip">G · 300ml</span>
+            </div>
+            <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener">Quero esse</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-photo"><img src="images/img-19.jpg" alt="Morango com chocolate ao leite"></div>
+          <div class="product-body">
+            <h3>Morango + Chocolate ao Leite ou Avelã</h3>
+            <p>Morangos frescos cobertos por chocolate derretido, na versão ao leite ou avelã.</p>
+            <div class="product-sizes">
+              <span class="size-chip">Chocolate ao leite</span>
+              <span class="size-chip">Avelã</span>
+            </div>
+            <div class="product-sizes">
+              <span class="size-chip">P · 150ml</span>
+              <span class="size-chip">M · 200ml</span>
+              <span class="size-chip">G · 300ml</span>
+            </div>
+            <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener">Quero esse</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-photo"><img src="images/img-20.jpg" alt="Self-service por quilo A Morangueria"></div>
+          <div class="product-body">
+            <h3>Self-Service por Quilo</h3>
+            <p>Monte sua taça à vontade, com mais de 58 sabores artesanais e cremosos e mais de 20 acompanhamentos, entre frutas, caldas e crocantes.</p>
+            <div class="product-sizes">
+              <span class="size-chip size-chip-highlight">Por quilo</span>
+            </div>
+            <a class="btn btn-primary" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener">Quero esse</a>
+          </div>
+        </div>
+      </div>
+      <div class="dots" id="prodDots"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 3B: SORVETES ARTESANAIS ============ -->
+<section class="sorvetes section-pad">
+  <div class="container">
+    
+    <!-- HEADER + DESTAQUE DA SEÇÃO -->
+    <div class="sorvetes-intro">
+      <div class="sorvetes-left">
+        <h2 class="sorvetes-title reveal reveal-delay-1">
+          <span class="number">58</span>
+          <span class="subtitle-premium">Sabores<br><em>SORVETES ARTESANAIS</em></span>
+        </h2>
+        <p class="sorvetes-descriptor reveal reveal-delay-2">
+          Qualidade premium em cada colherada. Artesanais, frescos e irresistíveis.
+        </p>
+        
+        <!-- 3 DESTAQUES PREMIUM -->
+        <div class="sorvetes-highlights reveal reveal-delay-3">
+          <div class="highlight-item">
+            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C7 2 3 6 3 11c0 5 9 11 9 11s9-6 9-11c0-5-4-9-9-9z"/>
+              <circle cx="12" cy="11" r="2" fill="currentColor"/>
+            </svg>
+            <div>
+              <strong>+58 sabores</strong>
+              <span>Opções para todos os gostos</span>
+            </div>
+          </div>
+          
+          <div class="highlight-item">
+            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7v5c0 6 10 8 10 8s10-2 10-8V7l-10-5z"/>
+              <path d="M8 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+            <div>
+              <strong>Ingredientes premium</strong>
+              <span>Selecionados e testados para cada receita</span>
+            </div>
+          </div>
+          
+          <div class="highlight-item">
+            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8"/>
+              <path d="M12 5v7l5 3" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <div>
+              <strong>Produção 100% artesanal</strong>
+              <span>Feito em pequenos lotes, congelado na hora certa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- IMAGEM DO POTE + BADGE LATERAL -->
+      <div class="sorvetes-visual reveal reveal-delay-2">
+        <div class="sorvetes-image-wrapper">
+
+        </div>
+        <div class="sorvetes-badge-lateral">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3c1.8 1.8 2.6 3 2.6 4.4A2.6 2.6 0 0112 10a2.6 2.6 0 01-2.6-2.6C9.4 6 10.2 4.8 12 3z"/>
+            <path d="M12 10c4 0 6.2 2.3 6.2 6.1C18.2 19.6 15.4 21 12 21s-6.2-1.4-6.2-4.9C5.8 12.3 8 10 12 10z"/>
+          </svg>
+          <div>
+            <strong>Sorvete artesanal</strong>
+            <span>por quilo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SABORES EM DESTAQUE -->
+    <div class="sorvetes-destaque-section reveal reveal-delay-4">
+      <h3 class="destaque-title">SABORES EM DESTAQUE</h3>
+      
+      <div class="sabores-grid">
+        <div class="sabor-card reveal">
+          <div class="sabor-image morango-img"></div>
+          <h4>Morango</h4>
+        </div>
+        
+        <div class="sabor-card reveal reveal-delay-1">
+          <div class="sabor-image cookies-img"></div>
+          <h4>Cookies</h4>
+        </div>
+        
+        <div class="sabor-card reveal reveal-delay-2">
+          <div class="sabor-image chocolate-img"></div>
+          <h4>Chocolate</h4>
+        </div>
+        
+        <div class="sabor-card reveal reveal-delay-3">
+          <div class="sabor-image maracuja-img"></div>
+          <h4>Maracujá</h4>
+        </div>
+        
+        <div class="sabor-card reveal reveal-delay-4">
+          <div class="sabor-image pistache-img"></div>
+          <h4>Pistache</h4>
+        </div>
+        
+        <div class="sabor-card reveal reveal-delay-5">
+          <div class="sabor-image ninho-img"></div>
+          <h4>Leite Ninho</h4>
+        </div>
+      </div>
+
+      <button class="btn btn-outline reveal reveal-delay-5" id="conhecerSabores">
+        Conheça todos +58 sabores →
+      </button>
+
+      <!-- BOTÕES DE DELIVERY -->
+      <div class="sorvetes-delivery-section reveal reveal-delay-5">
+        <a class="btn-delivery ifood" href="https://www.ifood.com.br/delivery/campinas-sp/a-morangueria-centro/0157c05f-03b0-49a1-871e-6f64aebb2c25?UTM_Medium=share" target="_blank" rel="noopener" aria-label="Pedir no iFood">
+          Pedir no iFood
+        </a>
+        
+        <a class="btn-delivery app99" href="https://oia.99app.com/dlp9/7JT6cI" target="_blank" rel="noopener" aria-label="Pedir no 99Food">
+          <svg viewBox="0 0 24 24" fill="currentColor"><text x="4" y="18" font-size="14" font-weight="bold" fill="#000" font-family="Arial">99</text></svg>
+          Pedir no 99
+        </a>
+        
+        <a class="btn-delivery whatsapp wa-link" href="#" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.24-1.37a9.9 9.9 0 004.8 1.23h.01c5.5 0 9.96-4.46 9.96-9.96C21.99 6.46 17.54 2 12.04 2zm0 18.2h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.23 8.23 0 01-1.26-4.39c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.71 8.25-8.28 8.25z"/></svg>
+          Pedir no WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ SECTION 4: IMPACTO ============ -->
+<section class="impacto">
+  <div class="impacto-bg" id="parallaxImg" style="background-image:url('https://images.unsplash.com/photo-1503624280608-6b79dc9ab03d?auto=format&fit=crop&w=1600&q=80');"></div>
+  <div class="impacto-content reveal">
+    <h2>É impossível<br>olhar e <em>não querer.</em></h2>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: MANIFESTO DA MARCA ============ -->
+
+<!-- ============ SECTION 6: DEPOIMENTOS ============ -->
+<section class="depoimentos section-pad">
+  <div class="container">
+    <div class="dep-head">
+      <div>
+        <p class="eyebrow-sm on-dark reveal">Quem experimenta, entende</p>
+        <h2 class="section-title reveal reveal-delay-1">O que dizem<br>sobre a gente</h2>
+      </div>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-quote">"Simplesmente maravilhoso! Os morangos estavam super fresquinhos e o chocolate estava delicioso. Uma combinação perfeita! Dá vontade de pedir de novo assim que termina."</p>
+        <div class="dep-person">
+          <div class="dep-avatar">L</div>
+          <div><div class="name">Lúcia</div></div>
+        </div>
+      </div>
+      <div class="dep-card reveal reveal-delay-1">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-quote">"Um dos melhores doces que já experimentei! O morango combina perfeitamente com o chocolate e é tudo muito caprichado. Além de lindo, é simplesmente delicioso!"</p>
+        <div class="dep-person">
+          <div class="dep-avatar">R</div>
+          <div><div class="name">Roberto</div></div>
+        </div>
+      </div>
+      <div class="dep-card reveal reveal-delay-2">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-quote">"Fiquei apaixonada! Muito gostoso, bem servido e com uma apresentação linda. O chocolate é maravilhoso e os morangos fazem toda a diferença. Com certeza vou pedir novamente!"</p>
+        <div class="dep-person">
+          <div class="dep-avatar">F</div>
+          <div><div class="name">Fernanda</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: INSTAGRAM ============ -->
+<section class="instagram section-pad" id="instagram">
+  <div class="insta-decor" aria-hidden="true">
+    <span class="insta-glow gA"></span>
+    <span class="insta-glow gB"></span>
+    <svg class="insta-heart h1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20.5S3.5 15.2 3.5 9.1C3.5 6 6 3.8 8.7 3.8c1.6 0 3 .8 3.8 2 .8-1.2 2.2-2 3.8-2 2.7 0 5.2 2.2 5.2 5.3 0 6.1-8.5 11.4-8.5 11.4z"/></svg>
+    <svg class="insta-heart h2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20.5S3.5 15.2 3.5 9.1C3.5 6 6 3.8 8.7 3.8c1.6 0 3 .8 3.8 2 .8-1.2 2.2-2 3.8-2 2.7 0 5.2 2.2 5.2 5.3 0 6.1-8.5 11.4-8.5 11.4z"/></svg>
+    <span class="insta-dot id1"></span>
+    <span class="insta-dot id2"></span>
+    <span class="insta-dot id3"></span>
+  </div>
+  <div class="container insta-layout">
+
+    <div class="insta-phone-col reveal">
+      <div class="loja-image-wrapper">
+        <img src="images/img-21.jpg" alt="Fachada A Morangueria" loading="lazy"/>
+      </div>
+    </div>
+
+    <div class="insta-text-col">
+      <p class="insta-eyebrow reveal">Vem conhecer a</p>
+      <h2 class="insta-title reveal reveal-delay-1">MORANGUERIA</h2>
+      <p class="insta-desc reveal reveal-delay-2">Acompanhe nossas delícias, novidades e tudo que acontece por aqui.</p>
+      <a class="btn btn-primary reveal reveal-delay-3" href="https://www.instagram.com/amorangueria" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1"/></svg>
+        Conhecer o Instagram
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SECTION 8: INFO + CTA ============ -->
+<section class="info-strip" id="contato">
+  <div class="container info-inner">
+    <div class="info-cols">
+      <div class="info-col reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="label">R. Sacramento, 202 - Centro</div><div class="sub">Campinas - SP, 13010-210</div></div>
+      </div>
+      <div class="info-col reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><div class="label">Todos os dias · 11h às 19h</div><div class="sub">Aberto todos os dias para deixar seu dia mais doce</div></div>
+      </div>
+      <div class="info-col reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+        <div><div class="label">Peça e receba sua delícia</div><div class="sub">Peça sua combinação favorita e receba onde estiver</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      
+</footer>
+
+<!-- ============ Sticky WhatsApp (mobile) ============ -->
+<a class="sticky-wa wa-link" href="#" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.33 4.95L2 22l5.24-1.37a9.9 9.9 0 004.8 1.23h.01c5.5 0 9.96-4.46 9.96-9.96C21.99 6.46 17.54 2 12.04 2zm0 18.2h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.23 8.23 0 01-1.26-4.39c0-4.55 3.7-8.25 8.26-8.25 2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 012.42 5.84c0 4.55-3.71 8.25-8.28 8.25z"/></svg>
+</a>
+
+<script>
+// ---- WhatsApp links ----
+(function(){
+  const phone = "5519992585948";
+  const msg = encodeURIComponent("Olá, gostaria de conhecer os sabores disponiveis na loja hoje 😁🍦");
+  const url = "https://wa.me/" + phone + "?text=" + msg;
+  document.querySelectorAll('.wa-link, #waHeaderBtn, #waMobileBtn').forEach(el => el.setAttribute('href', url));
+})();
+
+// ---- Botão Conheça todos sabores ----
+document.getElementById('conhecerSabores').addEventListener('click', () => {
+  const phone = "5519992585948";
+  const msg = encodeURIComponent("Olá, gostaria de conhecer os sabores disponiveis na loja hoje 😁🍦");
+  const url = "https://wa.me/" + phone + "?text=" + msg;
+  window.open(url, '_blank');
+});
+
+// ---- Header scroll state ----
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+// ---- Mobile menu ----
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open'); mobileMenu.classList.remove('open');
+}));
+
+// ---- Scroll reveal ----
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+revealEls.forEach(el => io.observe(el));
+
+// ---- Product carousel ----
+const track = document.getElementById('productTrack');
+const dotsWrap = document.getElementById('prodDots');
+const cards = track.querySelectorAll('.product-card');
+cards.forEach((_, i) => {
+  const b = document.createElement('button');
+  if(i === 0) b.classList.add('active');
+  b.addEventListener('click', () => {
+    track.scrollTo({left: cards[i].offsetLeft - track.offsetLeft, behavior:'smooth'});
+  });
+  dotsWrap.appendChild(b);
+});
+function updateDots(){
+  const dots = dotsWrap.querySelectorAll('button');
+  let closest = 0, min = Infinity;
+  cards.forEach((c, i) => {
+    const diff = Math.abs(c.offsetLeft - track.scrollLeft - track.offsetLeft);
+    if(diff < min){ min = diff; closest = i; }
+  });
+  dots.forEach((d,i) => d.classList.toggle('active', i === closest));
+}
+track.addEventListener('scroll', () => { window.requestAnimationFrame(updateDots); }, {passive:true});
+
+document.getElementById('prodNext').addEventListener('click', () => {
+  track.scrollBy({left: track.clientWidth * 0.8, behavior:'smooth'});
+});
+document.getElementById('prodPrev').addEventListener('click', () => {
+  track.scrollBy({left: -track.clientWidth * 0.8, behavior:'smooth'});
+});
+
+// ---- Subtle parallax on hero product image ----
+const heroVisual = document.getElementById('heroVisual');
+const heroSection = document.querySelector('.hero');
+let heroTicking = false;
+window.addEventListener('scroll', () => {
+  if(!heroTicking){
+    window.requestAnimationFrame(() => {
+      const rect = heroSection.getBoundingClientRect();
+      if(rect.bottom > 0 && rect.top < window.innerHeight){
+        const offset = Math.max(-18, Math.min(18, window.scrollY * 0.06));
+        heroVisual.style.transform = `translateY(${offset}px)`;
+      }
+      heroTicking = false;
+    });
+    heroTicking = true;
+  }
+}, {passive:true});
+
+// ---- Subtle parallax on impact image ----
+const parallaxImg = document.getElementById('parallaxImg');
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if(!ticking){
+    window.requestAnimationFrame(() => {
+      const rect = parallaxImg.parentElement.getBoundingClientRect();
+      const offset = rect.top * 0.06;
+      parallaxImg.style.transform = `translateY(${offset}px) scale(1.1)`;
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, {passive:true});
+</script>
+</body>
+</html>
